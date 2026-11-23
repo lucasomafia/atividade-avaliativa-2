@@ -1,0 +1,41 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+public class PM_Prova2_M {
+    public static void main(String[] args) {
+        int navegador = 1;
+        Scanner sc = new Scanner();
+        ArrayList<Veiculo> veiculos = new ArrayList<>();
+         ArrayList<Veiculo> veiculosDisponiveis = new ArrayList<>();
+        Moto moto = new Moto(navegador, null, null, navegador, navegador, navegador, null);
+        Van van = new Van(navegador, null, null, navegador, navegador, navegador, null);
+        Carro carro = new Carro(null, null, navegador, navegador, navegador, null, navegador);
+        for (Veiculo veiculo : veiculos) {
+            if (veiculo.getStatus().equals(DISPONIVEL)){
+                veiculosDisponiveis.add(veiculo);
+            }
+        }
+        veiculos.add(carro);
+        veiculos.add(van);
+        veiculos.add(moto);
+        while(navegador != 0){
+            System.err.println("1. Associar veículos a um aluguel");
+            System.err.println("2. Exibir todos os veículos cadastrados");
+            System.err.println("3. Exibir todos os alugueis cadastrados");
+            System.err.println("4. Exibir apenas veículos disponíveis");
+            System.err.println("5. Avaliar objetos que implementam a interface Avaliavel");
+            System.err.println("6. Realizar inspeção em veículos que implementam a interface Inspecionavel");
+            System.err.println("7. Remover veículos em manutenção do sistema");
+            navegador = sc.nextInt();
+            if (navegador == 2){
+                System.out.println(veiculos);
+            }
+            if (navegador == 4){
+                System.out.println(veiculosDisponiveis);
+            }
+        }
+
+
+    }
+    
+}
